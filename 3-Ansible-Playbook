@@ -142,8 +142,23 @@ ansible-playbook 4.yaml --check
         - "one"
         - "two"
         - "three"
+**********************************
 
+- hosts: all
+  user: ansible
+  connection: ssh
+  become: yes
+  gather_facts: yes
 
+  tasks:
+    - name: print
+      command: mkdir "{{item}}"
+      loop:
+        - "one"
+        - "two"
+        - "three"
+
+u will see 3 directory will be create in nodes
 #############################################################################################################
 
 
